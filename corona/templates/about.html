@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <header id = "head">
+    <section class = "navsection">	
+		<div class="logo" style="float: left; width:80%">
+			<!-- <img src="{% static 'img/email_logo.png' %}" alt = "logo" align = "left"> -->
+      <img src="{% static 'COVID19 TRACKER.png'%}" id="logo1" align="left">
+		</div>
+		<nav>
+			<li id = "li"><a href= "/" ><b>Home</b></a></li>		
+		</nav>
+     </section>
+    </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Website</title>
+  <link rel= "stylesheet" href="{% static 'css/style_about.css' %}">
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<style>
+  #li{
+    font-family: 'Times New Roman', Times, serif;
+    color: navy;
+  }
+  body{
+    overflow:visible;
+    
+  background-image: url('{% static "home.jpg" %}');
+  }
+
+  #cls{
+
+    cursor: pointer;
+  }
+  #cls{
+    color: whitesmoke;
+  }
+  #cls:hover{
+    color: rgb(20, 20, 70);
+  }
+  
+html{
+  scroll-behavior: smooth;
+}
+  #btnscroll{
+    position:fixed;
+    align-content: center;
+    bottom: 10px;
+    width:60px;
+    height:50px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    color:#ffff;
+    outline: none;
+    background:navy;
+  }
+
+  #p{
+    font-family: 'Times New Roman', Times, serif;
+  }
+</style>
+
+<body > 
+
+</body >
+
+<style>
+
+	html {
+  box-sizing: border-box;
+}
+
+
+.column {
+  float: left;
+  width: 40%;
+  margin-bottom: 20px;
+  padding:  50px;
+}
+
+
+ 
+.card {
+
+  background-color:rgba(0, 0, 0, 0.6);
+  margin-left: 100px; 
+  align-self: center;
+
+}
+
+
+.container {
+  padding: 12 16px;
+}
+
+.card:hover{
+  background-color:rgb(26, 26, 59);
+}
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color:white;
+}
+.team{
+  background-color: 
+  rgb(71, 120, 255);
+  margin: 1px;
+}
+.team h2{
+	font-family: cursive;
+	color: white;
+	text-align: center;
+  background-color:rgb(0,0,0,0.6); 
+}
+.container p{
+  color: aliceblue;
+
+}
+.team h3{
+  font-family: cursive;
+	color: white;
+	text-align: center;
+  background-color:rgb(71, 120, 255);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+  
+nav{
+        width:20%;
+        display: flex;
+        justify-content: space-around;
+    } 
+    nav a{
+        float: left;
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-style: oblique;
+        
+        text-decoration: none;
+        padding: 10px 10px;
+
+        font-size: 25px;
+    }  
+    
+    nav a:first-child{
+        color: white;
+    }
+    
+    nav a:hover{
+        color:lightblue;
+    }
+    .logo{
+      height: 200px;
+    }
+#logo1{
+  height: 200px;
+}
+
+</style>
+<section class = "team" id = "section2" >
+  
+  <h2 align="center"><u>About Us</u></h2>
+  <br>
+  <div class="row" >
+    <div class="column">
+    <div class="card">
+      <div class="container">
+      <h3>Developer : Ambika Sadh</h3>
+      <p class="title">Computer Science Engineer</p>
+      <p>Final Year Student : Pursuing Btech From SISTec Gandhinagar Bhopal.</p>
+      <p>Gmail ID : ambikasadh12@gmail.com</p>
+      <p>Phone Number : 2767266178</p>
+
+      </div>
+    </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <div class="container">
+        <h3>About Website</h3>
+      <p>
+        This website is developed to track the data of Covid19 globally.
+        In this website, I have used postman covid19 to fetch the global data.
+
+      </p>
+  
+        </div>
+      </div>
+      </div>
+   
+  
+  
+   
+</section>
+
+</html>
