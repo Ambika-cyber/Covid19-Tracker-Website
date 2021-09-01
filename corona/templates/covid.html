@@ -1,0 +1,113 @@
+<html>
+  {%  load static %}
+    <head>
+        <title>
+            Covid19 Tracker Website
+        </title>
+        <link rel="stylesheet" href="static/covid.css">
+     
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <div class="row">
+        <br>
+        <!-- <div class="img">  <img src="{% static 'COVID19 TRACKER.png'%}" id="logo1" align="left"></div> -->
+      <div class="title"><h3  style="font-size: 3vw; font-family: Georgia, 'Times New Roman', Times, serif; color: navy;"><center>Covid19 Global Summary</center></h3></div>
+      <a href="/" style="font-size: 2rem; font-family: Georgia, 'Times New Roman', Times, serif; margin-left: 5%;">Home</a>
+      <br>
+      </div>
+        
+    </head>
+    
+      
+      
+     
+<style>
+  
+  body{
+    background-color:lightskyblue;
+  }
+    </style>
+    <body>
+  
+ <br>
+ <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="w3-blue w3-hover-shadow w3-padding-64 w3-center m-4" style="width: 15rem;"> <!-- m-2 used to gve space or margin between cards-->
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-size: medium; font-family: Georgia, 'Times New Roman', Times, serif;">New Confirmed Cases</h6>
+                      <p class="cases" style="font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;">{{result.NewConfirmed}}</p>
+                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                    </div>
+                  </div>
+                  <br>
+                  <div class="w3-yellow w3-hover-shadow w3-padding-64 w3-center m-4" style="width: 15rem;">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: medium;">New Death Cases</h6>
+                      <p class="cases" style="font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;">{{result.NewDeaths}}</p>
+                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                    </div>
+                  </div>
+                  <br>
+                  <div class="w3-red w3-hover-shadow w3-padding-64 w3-center m-4" style="width: 15rem;">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: medium;">Total Deaths</h6>
+                      <p class="cases" style="font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;">{{result.TotalDeaths}}</p>
+                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                    </div>
+                  </div>
+                  <br>
+                  <div class="w3-light-green w3-hover-shadow w3-padding-64 w3-center  m-4 " style="width: 15rem;">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: medium;">New Recovered Cases</h6>
+                      <p class="cases" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 25px;">{{result.NewRecovered}}</p>
+                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                    </div>
+                  </div>
+                  
+                  <div class="w3-green w3-hover-shadow w3-padding-64 w3-center m-4 " style="width: 15rem;">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: medium;">Total Recovered</h6>
+                      <p class="cases" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 25px;">{{result.TotalRecovered}}</p>
+                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <table class="table table-dark">
+            <thead class="th">
+                <tr>
+                    <th>S. No.</th>
+                    <th>Country</th>
+                    <th>Total Confirmed</th>
+                    <th>Total Deaths</th>
+                    <th>Total Recovered</th>
+                </tr>
+            </thead>
+
+            <tbody class="th2" >
+                {% for i in country %}
+                <tr class="table-primary">
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.Country}}</td>
+                    <td>{{i.TotalConfirmed}}</td>
+                    <td>{{i.TotalDeaths}}</td>
+                    <td>{{i.TotalRecovered}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        </body>
+
+</html>
