@@ -1,152 +1,287 @@
+<!DOCTYPE html>
+{%load static%}
 <html>
-  {%  load static %}
-    <head>
-        <title>
-            Covid19 Tracker Website
-        </title>
-               
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-      <div class="row">
-        <br>
-        <!-- <div class="img">  <img src="{% static 'COVID19 TRACKER.png'%}" id="logo1" align="left"></div> -->
-      <div class="h"><h3 class="h"><center>Covid19 Global Summary</center></h3></div>
-      <br>
-      </div>
-        
-    </head>
-    
-      
-      
-     
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="static/index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- reference your installed Font Awesome Free package's files here -->
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+
+</head>
 <style>
-      .h{
-  font-family: "Times New Roman", Times, serif;
-  color: white;
-  font-style: italic;
-  text-decoration-line: underline;
-  text-decoration-style: double;
-  text-align: center;
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-      }
-
-      body{
-    background-image: url('{% static "h2.jpg" %}');
-    background-repeat: no-repeat;
-    background-size: cover;
-     
-    }
-    .topnav a{
-
-      color: white;
- 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-weight: bold;
-      align-content: space-around;
-      
-    }
-
-.cases{
-  font-family: "Times New Roman", Times, serif;
-
+     *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+  text-decoration: none;
 }
+footer{
+  width: 100%;
 
-
-    .logo{
-      height: 200px;
-    }
-#logo1{
-  height: 200px;
+  bottom: 0;
+  left: 0;
+  background: #111;
 }
-
-h6{
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
+footer .content{
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.th{
-  color: white;
+footer .content p,a{
+  color: #fff;
 }
-
-    </style>
-    <body>
+footer .content .box{
+  width: 20%;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+  text-align: relative;
   
+
+}
+footer .content p{
+  text-align: justify;
+  
+}
+/* footer .content .lower .topic{
+  margin: 50px 0 10px 0;
+}  */
+
+footer .content .right input[type="text"]{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  color: #d9d9d9;
  
-        <div class="container-fluid">
-            <div class="row">
-                <div class="card text-white bg-primary m-2" style="width: 12rem; height: 8rem;"> <!-- m-2 used to gve space or margin between cards-->
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h6 class="card-title">New Confirmed Cases</h6>
-                      <p class="cases">{{result.NewConfirmed}}</p>
-                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card text-white bg-warning m-2" style="width: 12rem;">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h6 class="card-title">New Death Cases</h6>
-                      <p class="cases">{{result.NewDeaths}}</p>
-                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card text-white bg-danger m-2" style="width: 12rem;">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h6 class="card-title">Total Deaths</h6>
-                      <p class="cases">{{result.TotalDeaths}}</p>
-                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card text-white bg-success bg-opacity-50 m-2 " style="width: 12rem;">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h6 class="card-title">New Recovered Cases</h6>
-                      <p class="cases">{{result.NewRecovered}}</p>
-                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
-                    </div>
-                  </div>
-                  
-                  <div class="card text-white bg-success m-2 " style="width: 12rem;">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h6 class="card-title">Total Recovered</h6>
-                      <p class="cases">{{result.TotalRecovered}}</p>
-                      <!-- <a href="#" class="btn btn-primary">Click here</a> -->
-                    </div>
-                  </div>
-            </div>
-        </div>
-
-        <table class="table table-dark table-hover">
-         
-            <thead class="th">
-                <tr>
-                    <th>S. No.</th>
-                    <th>Country</th>
-                    <th>Total Confirmed</th>
-                    <th>Total Deaths</th>
-                    <th>Total Recovered</th>
-                </tr>
-            </thead>
-
-            <tbody class="th">
-                {% for i in country %}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{i.Country}}</td>
-                    <td>{{i.TotalConfirmed}}</td>
-                    <td>{{i.TotalDeaths}}</td>
-                    <td>{{i.TotalRecovered}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+  
+}
 
 
-        </body>
+footer .content .media-icons a{
+  font-size: 30px;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  border-radius: 5px;
+  border: 2px solid #222222;
+  margin: 30px 5px 0 0;
+  transition: all 0.3s ease;
+}
+.content .media-icons a:hover{
+  border-color: lightblue;
+}
+footer .bottom{
+  width: 100%;
+  text-align: right;
+  color: #d9d9d9;
+  padding: 0 40px 5px 0;
+}
+footer .bottom a{
+  color: #eb2f06;
+}
+footer a{
+  transition: all 0.3s ease;
+}
+footer a:hover{
+  color: #eb2f06;
+}
+@media (max-width:1100px) {
+  footer .content .middle{
+    padding-left: 50px;
+  }
+}
+@media (max-width:950px){
+  footer .content .box{
+    width: 50%;
+  }
+  .content .right{
+    margin-top: 40px;
+  }
+}
+@media (max-width:560px){
+  footer{
+    position: relative;
+  }
+  footer .content .box{
+    width: 100%;
+    margin-top: 30px;
+  }
+
+}
+
+.ph{
+
+  font-size: 15px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+.menu-area a{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+</style>
+<body>
+  <section>
+  
+    <header>  
+        <div class="nav-area">
+            <div class="logo" style="font-size:3vw;"><span>COVID</span>19<span> Tracker</span></div>
+            <ul class="menu-area">
+                <li><a class="active" href ="/" >Home</a></li>
+                <li><a href ="#aboutus" >About Us</a></li>
+                <li><a href ="#prevent" >Prevention</a></li>
+                <li><a href ="#contactus" >Contact Us</a></li>
+           
+            </ul>
+    </div>
+
+    <!-- add video -->
+  
+    
+    
+
+    
+    <video src="{% static 'clip3.mp4' %}" type="video/mp4" class="vid-bg" autoplay muted>
+    </video>
+      
+    <div class="text">
+        <h1 style="font-size:4vw; font-family: Georgia, 'Times New Roman', Times, serif;">Welcome to Covid19 Tracker Website</h1>
+        <p style="font-size:2vw; font-family: Georgia, 'Times New Roman', Times, serif;">
+            Live updates of Covid19 are available here. 
+        </p>
+        <button type="button" class="btn btn-info" id="id1" onclick="goto();">See Global Update</button>
+
+   
+    </div>
+    
+   
+    </header>
+</section>
+
+<!-- <course -->
+<section class="main" id="prevent">
+
+    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Stay Safe & Stay Home</h1>
+    <P style="font-size: medium; font-weight: bold; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif;">
+        Protect Yourself
+    </P>
+  
+
+      <div class="container-fluid">
+        <div class="row">
+          
+              
+              <div  style="width : 25rem; height: auto;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <img src="{% static 'pre2.jpg'%}" class="img1">
+                  <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                </div>
+              </div>
+              <br>
+              <div  style="width : 25rem; height: auto;">
+                
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <img src="{% static 'red.jpg'%}" class="img1">
+                  <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                </div>
+              </div>
+              <br>
+              <div  style="width: 25rem; height: auto;">
+                
+                <div class="card-body">
+                    <img src="{% static 'pre2.jpg'%}" class="img1">
+                  <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                </div>
+              </div>
+              <div  style="width: 25rem; height: auto;">
+                
+                <div class="card-body">
+                    <img src="{% static 'mask.jpg'%}" class="img1">
+                  <!-- <a href="#" class="btn btn-primary">Click here</a> -->
+                </div>
+              </div>
+</section>
+<section>
+ <footer class="text-center text-white" style="background-color: #0a4275;">
+   <div class="content">
+     <div class="left box">
+       <div class="upper">
+         <div class="topic" id="aboutus" >About us</div>
+         <p class="ph">
+          This website is developed to track the data of Covid19 globally.
+In this website, I have used postman covid19 to fetch the global data.</p>
+       </div>
+       
+     </div>
+     <div class="middle box">
+       <div class="topic">Quick Links</div>
+       <div><a href="#" style="font-size: 15px;" onclick="goto();">Covid19 Global Update</a></div>
+       <div><a href="#" style="font-size: 15px;">Project Github Link</a></div>
+     
+     </div>
+     <div class="lower">
+      <div class="topic" id ="contactus" >Contact us</div>
+      <div class="phone">
+        <a style="font-size: 15px;"><i class="fas fa-phone-volume" ></i>+007 9089 6767</a>
+      </div>
+      <div class="email">
+        <a href="https://accounts.google.com/signin" style="font-size: 15px;"><i class="fas fa-envelope"></i>ambikasadh12@gmail.com</a>
+      </div>
+    </div>
+     <div class="right box">
+       <div class="topic">Get in touch!</div>
+       <form action="#">
+           <a href="https://github.com/Ambika-cyber"><i class="fab fa-github"></i></a>
+           <a href="https://www.instagram.com/ambika_12.s/"><i class="fab fa-instagram"></i></a>
+           <a href="https://twitter.com/ambikasadh?lang=en"><i class="fab fa-twitter"></i></a>
+           <a href="https://in.linkedin.com/in/ambika-sadh-31b999172"><i class="fab fa-linkedin-in"></i></a>
+         </div>
+       </form>
+     </div>
+   </div>
+  
+  
+   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: 20px;">
+    Developed By:
+    <a class="text-white" >Ambika Sadh</a><br>
+    © 2020 Copyright:
+    <a class="text-white" >All Rights Reserved</a>
+  </div>
+ </footer>
+ 
+</section>
+
+</body>
 
 </html>
+<script>
+    function goto() {
+
+        window.location.replace("/covid/")
+    }
+
+</script>
