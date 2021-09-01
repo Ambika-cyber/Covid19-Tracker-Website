@@ -1,0 +1,48 @@
+.title{
+    
+   
+    font-style: italic;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    text-align: center;
+   
+      color: navy;
+      
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-style: oblique;
+      font-weight: bold;
+      
+
+    }
+    .title :hover{
+        background: lightblue;
+    }
+    
+  
+        
+  
+        body{
+      background: cornflowerblue;
+      background-repeat: no-repeat;
+      background-size: cover;
+       
+      }
+
+     
+    
+  
+  .cases{
+    font-family: "Times New Roman", Times, serif;
+  
+  }
+  
+  
+      .logo{
+        height: 200px;
+      }
+  #logo1{
+    height: 200px;
+  }
+  
+  
+ 
